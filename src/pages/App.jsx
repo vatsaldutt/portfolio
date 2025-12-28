@@ -14,6 +14,7 @@ import CRYSTAL from '../pages/CRYSTAL/crystal';
 import HomeContent from '../pages/HomeContent';
 import AboutPage from '../pages/AboutPage';
 import ReflectionPage from '../pages/ReflectionPage';
+import CinemaPage from '../pages/cinema';
 import { label } from 'framer-motion/client';
 
 
@@ -231,6 +232,7 @@ export default function App() {
                     <Route path="/crystal" element={<CRYSTAL />} />
                     <Route path="/about" element={<AboutPage />} />
                     <Route path="/reflection" element={<ReflectionPage />} />
+                    <Route path="/cinema" element={<CinemaPage />} />
                     <Route path="/" element={
                         <HomeContent
                             fadeIn={fadeIn}

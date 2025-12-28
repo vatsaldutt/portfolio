@@ -1,0 +1,80 @@
+.cinema-page {
+    padding: 0;
+    background: black;
+}
+
+/* Wrapper */
+.video-wrapper {
+    position: absolute;
+    z-index: 2;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Video */
+.video-wrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Text overlay positioning (from your original code, refined) */
+.text-overlay {
+    position: absolute;
+    top: 80vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* Title — merged typography + animation */
+.cinema-title {
+    font-size: 5rem;
+    font-family: var(--font-main);
+    color: rgba(255, 255, 255, 0.518);
+    margin: 0;
+    letter-spacing: 2px;
+    opacity: 0;
+    transform: translateY(50px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+
+.cinema-title.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.cinema-gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 55%;
+
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.95),
+            rgba(0, 0, 0, 0.45),
+            transparent);
+
+    opacity: 0;
+    transform: translateY(40px);
+    z-index: 2;
+
+    transition:
+        opacity 1s ease,
+        transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cinema-gradient.show {
+    opacity: 1;
+    transform: translateY(0);
+}
