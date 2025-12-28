@@ -38,7 +38,7 @@ export default function Cinema() {
                 {/* Title */}
                 <div className="text-overlay">
                     <h2 className={`cinema-title ${showTitle ? 'show' : ''}`}>
-                        Cinematography
+                        CINEMATOGRAPHY
                     </h2>
                 </div>
             </div>

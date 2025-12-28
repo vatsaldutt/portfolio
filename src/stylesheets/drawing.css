@@ -1,0 +1,92 @@
+.drawing-page {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: black;
+}
+
+/* Background image */
+.drawing-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('/drawing/background.jpeg');
+    background-size: cover;
+    background-position: center;
+
+    filter: blur(0px);
+    transform: scale(1.05); /* prevents edge clipping when blurred */
+    transition: filter 1s ease;
+
+    z-index: 1;
+}
+
+.drawing-bg.blurred {
+    filter: blur(5px);
+}
+
+/* Gradient overlay (NEW, merged cleanly) */
+.drawing-gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.9),
+        rgba(0, 0, 0, 0.45),
+        transparent
+    );
+
+    opacity: 0;
+    transform: translateY(40px);
+
+    transition:
+        opacity 1s ease,
+        transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+
+    z-index: 2;
+}
+
+.drawing-gradient.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Title wrapper (animated, NOT the text) */
+.drawing-title-wrapper {
+    position: absolute;
+    top: 60vh;
+    left: 50%;
+    margin: auto;
+
+    transform: translate(-50%, -50%) translateY(100px);
+    opacity: 0;
+    z-index: 3;
+    pointer-events: none;
+    filter: blur(5px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        filter 1s ease;
+
+}
+
+/* Final centered position */
+.drawing-title-wrapper.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) translateY(0);
+    filter: blur(0px);
+}
+
+/* Title itself — stays sharp */
+.drawing-title {
+    font-size: 7rem;
+    font-family: "Montserrat", sans-serif;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+    letter-spacing: -5px;
+}

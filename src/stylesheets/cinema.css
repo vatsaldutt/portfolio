@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
 .cinema-page {
     padding: 0;
     background: black;
@@ -29,18 +31,19 @@
     text-align: center;
     z-index: 3;
     pointer-events: none;
+    width: auto;
 }
 
 /* Title — merged typography + animation */
 .cinema-title {
-    font-size: 5rem;
-    font-family: var(--font-main);
-    color: rgba(255, 255, 255, 0.518);
+    font-size: 6rem;
+    font-family: "Montserrat", sans-serif;
+    color: rgba(255, 255, 255, 0.478);
     margin: 0;
-    letter-spacing: 2px;
+    letter-spacing: -2px;
     opacity: 0;
     transform: translateY(50px);
-
+    width: auto;
     transition:
         opacity 0.8s ease,
         transform 0.8s ease;

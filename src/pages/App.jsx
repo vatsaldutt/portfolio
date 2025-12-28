@@ -15,6 +15,7 @@ import HomeContent from '../pages/HomeContent';
 import AboutPage from '../pages/AboutPage';
 import ReflectionPage from '../pages/ReflectionPage';
 import CinemaPage from '../pages/cinema';
+import DrawingPage from '../pages/drawing';
 import { label } from 'framer-motion/client';
 
 
@@ -31,19 +32,26 @@ function AnimatedSwitch({ children }) {
                 setDisplayedLoc(location);
                 setAnimating(false);
             }, 300);
+
             return () => clearTimeout(timeoutRef.current);
         }
     }, [location, displayedLoc]);
 
     return (
-        <div
-            key={displayedLoc.pathname}
-            className={`page-wrapper ${animating ? 'slide-out-left' : 'slide-in-right'}`}
-        >
-            <Routes location={displayedLoc}>{children}</Routes>
+        <div className={`page-wrapper ${animating ? 'slide-out-left' : 'slide-in-right'}`}>
+            <Routes location={displayedLoc}>
+                {React.Children.map(children, (child) =>
+                    React.cloneElement(child, {
+                        element: React.cloneElement(child.props.element, {
+                            key: displayedLoc.pathname,
+                        }),
+                    })
+                )}
+            </Routes>
         </div>
     );
 }
+
 
 function RouteListener({ onRouteChange }) {
     const location = useLocation();
@@ -233,12 +241,17 @@ export default function App() {
                     <Route path="/about" element={<AboutPage />} />
                     <Route path="/reflection" element={<ReflectionPage />} />
                     <Route path="/cinema" element={<CinemaPage />} />
-                    <Route path="/" element={
-                        <HomeContent
-                            fadeIn={fadeIn}
-                            simulateEducation={simulateEducation}
-                        />
-                    } />
+                    <Route path="/drawings" element={<DrawingPage />} />
+                    <Route
+                        path="/"
+                        element={
+                            <HomeContent
+                                fadeIn={fadeIn}
+                                simulateEducation={simulateEducation}
+                            />
+                        }
+                    />
+
                 </AnimatedSwitch>
 
             </div>
