@@ -25,7 +25,7 @@ export default function Cinema() {
         <div className="page-content cinema-page">
             <div className="video-wrapper">
                 <video
-                    src="/cinematography/Cinematography Demo.mp4"
+                    src="/cinematography/output.mov"
                     autoPlay
                     loop
                     muted
