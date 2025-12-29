@@ -23,11 +23,11 @@
 }
 
 /* Text overlay positioning (from your original code, refined) */
-.text-overlay {
+.cinema-text-overlay {
     position: absolute;
     top: 80vh;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    left: 50vw;
+    transform: translateX(-50%) !important;
     text-align: center;
     z-index: 3;
     pointer-events: none;

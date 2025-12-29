@@ -101,7 +101,7 @@ export default function App() {
     const simulateEducation = () => {
         handleTabEnter('Engineering');
         const t1 = setTimeout(() => {
-            setHighlightItem('CRYSTAL');
+            setHighlightItem('Project Homepage');
             const t2 = setTimeout(() => {
                 setHighlightItem(null);
                 navigate('/crystal');
@@ -131,16 +131,16 @@ export default function App() {
         ],
         Engineering: [
             {
-                heading: '',
+                heading: 'CRYSTAL',
                 items: [
-                    { label: 'CRYSTAL', href: '/crystal', description: "View my biggest project; Seven years of work in AI development" },
+                    { label: 'Project Homepage', href: '/crystal', description: "View my biggest project CRYSTAL; Seven years of work in AI development" },
                     { label: 'BetterGPT', href: '/bettergpt', description: "Use CRYSTAL's public version" },
                     { label: 'Future Vision', href: '/future', description: "See where this project is going; CRYSTAL's next milestones" },
                     // { label: 'Miscelleneous Projects', href: '/miscelleneous', description: "Other awesome projects!" },
                 ],
             },
             {
-                heading: '',
+                heading: 'Other',
                 items: [
                     { label: 'Software', href: '/software', description: "Various other software programs I have made" },
                     { label: 'Robotics', href: '/robotics', description: "View all my robotics projects" },

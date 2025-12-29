@@ -36,7 +36,7 @@ export default function Cinema() {
                 <div className={`cinema-gradient ${showGradient ? 'show' : ''}`} />
 
                 {/* Title */}
-                <div className="text-overlay">
+                <div className="cinema-text-overlay">
                     <h2 className={`cinema-title ${showTitle ? 'show' : ''}`}>
                         CINEMATOGRAPHY
                     </h2>
