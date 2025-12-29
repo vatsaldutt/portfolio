@@ -84,7 +84,7 @@ export default function TechTheatrePage() {
             <div className="page-content">
                 <div className={`overview ${animate ? 'show' : ''}`}>
                     <div className="image-container blurred-robot">
-                        <img className="fade-item delay-0" src="/CRYSTAL/background-cool.png" alt="background" />
+                        <img className="fade-item delay-0" src="/CRYSTAL/robotic arm background.png" alt="background" />
                     </div>
                     <div className="crystal-text-overlay">
                         <h2 className="fade-item delay-1 title title-big">CRYSTAL</h2>
