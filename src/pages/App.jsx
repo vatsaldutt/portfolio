@@ -10,7 +10,7 @@ import {
 } from 'react-router-dom';
 import '../stylesheets/style.css';
 import TechTheatrePage from '../pages/TechTheatrePage';
-import CRYSTAL from '../pages/CRYSTAL/crystal';
+import CRYSTAL from '../pages/crystal';
 import HomeContent from '../pages/HomeContent';
 import AboutPage from '../pages/AboutPage';
 import ReflectionPage from '../pages/ReflectionPage';
@@ -134,8 +134,8 @@ export default function App() {
                 heading: 'CRYSTAL',
                 items: [
                     { label: 'Project Homepage', href: '/crystal', description: "View my biggest project CRYSTAL; Seven years of work in AI development" },
-                    { label: 'BetterGPT', href: '/bettergpt', description: "Use CRYSTAL's public version" },
                     { label: 'Future Vision', href: '/future', description: "See where this project is going; CRYSTAL's next milestones" },
+                    { label: 'BetterGPT', href: '/bettergpt.html', description: "Use CRYSTAL's public version", external: true },
                     // { label: 'Miscelleneous Projects', href: '/miscelleneous', description: "Other awesome projects!" },
                 ],
             },
@@ -214,16 +214,30 @@ export default function App() {
                                     {dropdownContent[activeTab].map((col) => (
                                         <div key={col.heading} className="menu-column">
                                             <h4 className="column-heading">{col.heading}</h4>
-                                            {col.items.map(({ label, href, description }) => (
-                                                <Link
-                                                    key={label}
-                                                    to={href}
-                                                    className={`column-link${highlightItem === label ? ' highlight' : ''}`}
-                                                >
-                                                    <div className="link-label">{label}</div>
-                                                    {description && <div className="link-desc">{description}</div>}
-                                                </Link>
-                                            ))}
+                                            {col.items.map(({ label, href, description, external }) =>
+                                                external ? (
+                                                    <a
+                                                        key={label}
+                                                        href={href}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className={`column-link${highlightItem === label ? ' highlight' : ''}`}
+                                                    >
+                                                        <div className="link-label">{label}</div>
+                                                        {description && <div className="link-desc">{description}</div>}
+                                                    </a>
+                                                ) : (
+                                                    <Link
+                                                        key={label}
+                                                        to={href}
+                                                        className={`column-link${highlightItem === label ? ' highlight' : ''}`}
+                                                    >
+                                                        <div className="link-label">{label}</div>
+                                                        {description && <div className="link-desc">{description}</div>}
+                                                    </Link>
+                                                )
+                                            )}
+
                                         </div>
                                     ))}
                                 </div>
